@@ -21,7 +21,6 @@ def isListPalindrome(l):
     # c is middle
     c = s.next
     p = None
-    n = None
     while c:
         n = c.next
         c.next = p
