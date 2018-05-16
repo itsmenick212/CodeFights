@@ -1,14 +1,5 @@
 def swapLexOrder(str, pairs):
     
-    # sort pairs
-    for p in pairs:
-        if p[0] < p[1]:
-            x = p[1]
-            p[1] = p[0]
-            p[0] = x
-            
-    pairs = sorted(pairs, reverse=True)
-    
     # create hash of nodes
     d = {}
     d2 = {}
@@ -20,8 +11,6 @@ def swapLexOrder(str, pairs):
         while k in d:
             if d[k] > v:
                 k = d[k]
-                if k not in d and k > v:
-                    d[k] = v
             elif d[k] < v:
                 tmp = d[k]
                 d[k] = v
@@ -56,6 +45,5 @@ def swapLexOrder(str, pairs):
             s[i-1] = tmp[count]
             count += 1
     
-
     s = ''.join(s)
     return s
