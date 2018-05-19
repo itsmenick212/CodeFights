@@ -27,7 +27,7 @@ def mergeSort(sequence):
     def split(sequence, left, right):
         middle = (left + right) // 2
 
-        if left + 1 == right:
+        if left == middle:
             return
         split(sequence, left, middle)
         split(sequence, middle, right)
