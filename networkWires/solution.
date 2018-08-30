@@ -1,0 +1,38 @@
+from heapq import heappush, heappop
+
+def networkWires(n, wires):
+    
+    # Kruskal's Algorithm with heaps
+    heap = []
+    for w in wires:
+        heappush(heap,(w[2],min(w[0],w[1]),max(w[0],w[1])))
+    
+    length = 0
+    compt = [0 for x in range(n)]
+    next_component = 1
+    while heap:
+        e,i,j = heappop(heap)
+        if compt[i] == compt[j] and compt[i]!=0:
+            pass
+        elif compt[i] == 0 and compt[j] == 0:
+            length += e
+            compt[i], compt[j] = next_component,next_component
+            next_component += 1
+        elif (compt[i] == 0 and compt[j] != 0) or (compt[i] != 0 and compt[j] == 0):
+            length += e
+            compt[i] = max(compt[i],compt[j])
+            compt[j] = max(compt[i],compt[j])
+        elif compt[i] != compt[j]:
+            length += e
+            old_group = compt[i]
+            new_group = compt[j]
+            for k in range(len(compt)):
+                if compt[k] == old_group:
+                    compt[k] = new_group
+            
+    return length
+        
+
+            
+
+        
