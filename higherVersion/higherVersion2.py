@@ -6,7 +6,7 @@ def higherVersion2(ver1, ver2):
     for i in range(len(v1)):
         if int(v1[i]) > int(v2[i]):
             return 1        
-        elif int(v1[i]) > int(v2[i]):
+        elif int(v1[i]) < int(v2[i]):
             return -1
     
     return 0
